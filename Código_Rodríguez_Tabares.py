@@ -1,6 +1,7 @@
-import cv2
 import numpy
 import math
+
+from cv2 import cv2
 
 
 def main():
@@ -22,12 +23,12 @@ def main():
     # Top-left and bottom-right points of the region of interest rectangle:
 
     # Low resolution webcam
-    # regionOfInterestPoint1 = (330, 10)
-    # regionOfInterestPoint2 = (630, 310)
+    regionOfInterestPoint1 = (330, 10)
+    regionOfInterestPoint2 = (630, 310)
 
     # Medium resolution webcam
-    regionOfInterestPoint1 = (800, 30)
-    regionOfInterestPoint2 = (1250, 530)
+    # regionOfInterestPoint1 = (800, 30)
+    # regionOfInterestPoint2 = (1250, 530)
 
     # Constant tuple with the two learning rates for the background
     #  subtractor
