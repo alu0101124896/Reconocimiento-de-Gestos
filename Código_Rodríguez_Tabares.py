@@ -1,7 +1,9 @@
 import numpy
 import math
 
-from cv2 import cv2
+import cv2
+
+LOW_RESOLUTION_WEBCAM = True
 
 
 def main():
@@ -22,13 +24,14 @@ def main():
 
     # Top-left and bottom-right points of the region of interest rectangle:
 
-    # Low resolution webcam
-    regionOfInterestPoint1 = (330, 10)
-    regionOfInterestPoint2 = (630, 310)
-
-    # Medium resolution webcam
-    # regionOfInterestPoint1 = (800, 30)
-    # regionOfInterestPoint2 = (1250, 530)
+    if LOW_RESOLUTION_WEBCAM:
+        # Low resolution webcam
+        regionOfInterestPoint1 = (330, 10)
+        regionOfInterestPoint2 = (630, 310)
+    else:
+        # Medium resolution webcam
+        regionOfInterestPoint1 = (800, 30)
+        regionOfInterestPoint2 = (1250, 530)
 
     # Constant tuple with the two learning rates for the background
     #  subtractor
@@ -370,11 +373,12 @@ def printFingers(numberOfFingers, window):
     """
     Function that prints the number of fingers raised in the given window
     """
-    # Low resolution webcam
-    # position = (10, 280)
-
-    # Medium resolution webcam
-    position = (10, 480)
+    if LOW_RESOLUTION_WEBCAM:
+        # Low resolution webcam
+        position = (10, 280)
+    else:
+        # Medium resolution webcam
+        position = (10, 480)
 
     fontFace = cv2.FONT_HERSHEY_SIMPLEX
     fontScale = 1
@@ -398,11 +402,12 @@ def printGestures(handGesture, window):
     """
     Function that prints the name of the hand gesture on the given window
     """
-    # Low resolution webcam
-    # position = (10, 250)
-
-    # Medium resolution webcam
-    position = (10, 450)
+    if LOW_RESOLUTION_WEBCAM:
+        # Low resolution webcam
+        position = (10, 250)
+    else:
+        # Medium resolution webcam
+        position = (10, 450)
 
     fontFace = cv2.FONT_HERSHEY_SIMPLEX
     fontScale = 1
@@ -440,11 +445,12 @@ def printLearning(window):
     """
     Function that prints a learning message in the given window
     """
-    # Low resolution webcam
-    # position = (10, 280)
-
-    # Medium resolution webcam
-    position = (10, 480)
+    if LOW_RESOLUTION_WEBCAM:
+        # Low resolution webcam
+        position = (10, 280)
+    else:
+        # Medium resolution webcam
+        position = (10, 480)
 
     cv2.putText(window,
                 text='Learning...',
